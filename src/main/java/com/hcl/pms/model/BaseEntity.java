@@ -13,7 +13,7 @@ import lombok.Data;
 @MappedSuperclass
 public class BaseEntity {
     
-    @Column(name="crteated_by")
+    @Column(name="created_by")
     private String createdBy;
 
     @Column(name="updated_by")

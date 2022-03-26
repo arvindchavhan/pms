@@ -14,10 +14,10 @@ public class AuditAction extends BaseEntity{
     @Column(name = "audit_id", nullable = false)
     private Integer auditId;
 
-    @Column(name = "audit_id")
+    @Column(name = "old_data")
     private String oldData;
 
-    @Column(name = "audit_id")
+    @Column(name = "new_data")
     private String newData;
 
 }

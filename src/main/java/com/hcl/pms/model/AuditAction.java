@@ -2,23 +2,22 @@ package com.hcl.pms.model;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
-@Entity
-@Table(name = "audit_action")
-public class AuditAction extends BaseEntity {
-    @Id
-    @Column(name = "audit_id", nullable = false)
-    private Integer id;
+@Table
+@Entity(name = "")
+public class AuditAction extends BaseEntity{
 
-    @Column(name = "old_data", length = 45)
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "audit_id", nullable = false)
+    private Integer auditId;
+
+    @Column(name = "audit_id")
     private String oldData;
 
-    @Column(name = "new_data", length = 45)
+    @Column(name = "audit_id")
     private String newData;
 
 }

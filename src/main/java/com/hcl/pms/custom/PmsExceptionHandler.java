@@ -1,4 +1,4 @@
-package com.hcl.pms.ctrl;
+package com.hcl.pms.custom;
 
 import com.hcl.pms.custom.OrderEntryException;
 import com.hcl.pms.model.exception.CustomGlobalError;
@@ -14,8 +14,8 @@ public class PmsExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(OrderEntryException.class)
     public ResponseEntity<CustomGlobalError> orderEntryException(OrderEntryException orderEntryException) {
         CustomGlobalError globalError=new CustomGlobalError();
-        globalError.setErrorReason("Internal Server Error");
-        globalError.setMessage("Order Entry Exception");
+        globalError.setErrorReason(orderEntryException.getErrorReason());
+        globalError.setMessage(orderEntryException.getMessage());
         return new ResponseEntity<>(globalError, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 

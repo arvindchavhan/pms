@@ -1,6 +1,7 @@
-CREATE database pms;
+-- CREATE database pms;
+use pms;
 CREATE TABLE `asset_details` (
-                                 `asset_id` int NOT NULL,
+                                 `asset_id` int NOT NULL AUTO_INCREMENT,
                                  `security_name` varchar(45) DEFAULT NULL,
                                  `created_date` datetime DEFAULT NULL,
                                  `crteated_by` varchar(45) DEFAULT NULL,

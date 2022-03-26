@@ -2,6 +2,7 @@ package com.hcl.pms.controller;
 
 import com.hcl.pms.dto.CreatePaymentDto;
 import com.hcl.pms.model.OrderDetail;
+import com.hcl.pms.model.exception.PaymentInputException;
 import com.hcl.pms.model.request.CreatePaymentRequest;
 import com.hcl.pms.model.response.ResponseDTO;
 import com.hcl.pms.service.PaymentService;
@@ -27,6 +28,14 @@ public class PaymentController {
     public ResponseEntity<ResponseDTO<OrderDetail>> createPayment(@RequestBody CreatePaymentRequest request) {
         LOGGER.info("request : " + request);
 
+        ResponseDTO<OrderDetail> responseDTO = new ResponseDTO<>();
+
+        if(request.getOrderRef() == null) {
+            throw new PaymentInputException("invalid oder ref", "error in order ref");
+        }
+        if(request.getAmount() == null) {
+            throw new PaymentInputException("invalid amount", "error in amount");
+        }
         try {
             CompletableFuture<OrderDetail> response = paymentService.createPayment(request);
             OrderDetail dto = response.get();
@@ -34,13 +43,11 @@ public class PaymentController {
                 LOGGER.error("request is timeout");
                 return ResponseEntity.status(HttpStatus.REQUEST_TIMEOUT).build();
             } else if (!dto.isOperationSuccess()) {
-                ResponseDTO<OrderDetail> responseDTO = new ResponseDTO<>();
                 responseDTO.setSuccess(false);
                 responseDTO.setMessage(dto.getMessage());
                 LOGGER.error(dto.getMessage());
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseDTO);
             } else {
-                ResponseDTO<OrderDetail> responseDTO = new ResponseDTO<>();
                 responseDTO.setSuccess(true);
                 responseDTO.setMessage(dto.getMessage());
                 responseDTO.setResponse(dto);
@@ -48,12 +55,10 @@ public class PaymentController {
                 return ResponseEntity.ok(responseDTO);
             }
         } catch (Exception ex) {
-            ResponseDTO<OrderDetail> responseDTO = new ResponseDTO<>();
             LOGGER.error("an exception occurred", ex);
             responseDTO.setSuccess(false);
             responseDTO.setMessage("An error occurred while processing the request");
         }
-        ResponseDTO<OrderDetail> responseDTO = new ResponseDTO<>();
         return ResponseEntity.internalServerError().body(responseDTO);
     }
 

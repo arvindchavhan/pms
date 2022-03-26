@@ -16,8 +16,8 @@ import java.util.Optional;
 @Aspect
 @Component
 public class AuditAspect {
-
-   private static AuditActionRepository auditActionRepository;
+    @Autowired
+    private AuditActionRepository auditActionRepository;
 
     private static final Logger LOG = Logger.getLogger(AuditAspect.class);
 
@@ -25,7 +25,7 @@ public class AuditAspect {
     }
 
     @Before("execution(* com.hcl.pms.ctrl.*.*(..)) && target(request)")
-    public static void audit(JoinPoint joinPoint, HttpServletRequest request){
+    public void audit(JoinPoint joinPoint, HttpServletRequest request){
 
         String methodSignature = Optional.ofNullable(joinPoint.getSignature()).isPresent()
                         ? joinPoint.getSignature().getName() : null;

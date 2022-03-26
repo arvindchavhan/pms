@@ -16,45 +16,25 @@ public class PaymentTests {
     @Autowired
     private OrderDetailRepository orderDetailRepository;
 
-//    @Test
-//    void createPaymentWithInputOderRefAndAmountAndSetOderStatusAndTransactionId() {
-//        Long orderRefNo = 1L;
-//        double orderValue = 700.00;
-//        String orderStatus  = PaymentStatusDto.COMPLETED.name();
-//        String transactionId = UUID.randomUUID().toString();
-//
-//        Optional<OrderDetail> orderDetailOp = orderDetailRepository.findById(orderRefNo);
-//        OrderDetail orderDetail =  orderDetailOp.get();
-//        orderDetail.setOrderStatus(orderStatus);
-//        orderDetail.setOrderRefNo(orderRefNo);
-//        orderDetail.setTransactionId(transactionId);
-//        orderDetail.setOrderValue(orderValue);
-//
-//        OrderDetail updatedOderDetail = orderDetailRepository.save(orderDetail);
-//        Assertions.assertThat(updatedOderDetail.getOrderRefNo()).isEqualTo(orderRefNo);
-//        Assertions.assertThat(updatedOderDetail.getTransactionId()).isEqualTo(transactionId);
-//        Assertions.assertThat(updatedOderDetail.getOrderStatus()).isEqualTo(orderStatus);
-//        Assertions.assertThat(updatedOderDetail.getOrderValue()).isEqualTo(orderValue);
-//
-//    }
-//
-//    @Test
-//    void createPaymentWithInvalidAmount() {
-//        Long orderRefNo = 1L;
-//        String orderStatus  = PaymentStatusDto.COMPLETED.name();
-//        String transactionId = UUID.randomUUID().toString();
-//
-//        Optional<OrderDetail> orderDetailOp = orderDetailRepository.findById(orderRefNo);
-//        OrderDetail orderDetail =  orderDetailOp.get();
-//        orderDetail.setOrderStatus(orderStatus);
-//        orderDetail.setOrderRefNo(orderRefNo);
-//        orderDetail.setTransactionId(transactionId);
-//        orderDetail.setOrderValue(null);
-//
-//        OrderDetail updatedOderDetail = orderDetailRepository.save(orderDetail);
-//
-//    }
-//
+    @Test
+    void createPaymentWithInputOderRefAndAmountAndSetOderStatusAndTransactionId() {
+        Long orderRefNo = 1L;
+        double orderValue = 700.00;
+        String orderStatus  = PaymentStatusDto.COMPLETED.name();
+        String transactionId = UUID.randomUUID().toString();
 
+        Optional<OrderDetail> orderDetailOp = orderDetailRepository.findById(orderRefNo);
+        OrderDetail orderDetail =  orderDetailOp.get();
+        orderDetail.setOrderStatus(orderStatus);
+        orderDetail.setOrderRefNo(orderRefNo);
+        orderDetail.setTransactionId(transactionId);
+        orderDetail.setOrderValue(orderValue);
 
+        OrderDetail updatedOderDetail = orderDetailRepository.save(orderDetail);
+        Assertions.assertThat(updatedOderDetail.getOrderRefNo()).isEqualTo(orderRefNo);
+        Assertions.assertThat(updatedOderDetail.getTransactionId()).isEqualTo(transactionId);
+        Assertions.assertThat(updatedOderDetail.getOrderStatus()).isEqualTo(orderStatus);
+        Assertions.assertThat(updatedOderDetail.getOrderValue()).isEqualTo(orderValue);
+
+    }
 }

@@ -14,6 +14,7 @@ public class AssetDetail extends BaseEntity{
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="asset_id")
     private Long assetId;
 
     @Column(name="security_name")

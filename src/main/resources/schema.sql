@@ -1,6 +1,7 @@
-CREATE database pfm;
+-- CREATE database pms;
+use pms;
 CREATE TABLE `asset_details` (
-                                 `asset_id` int NOT NULL,
+                                 `asset_id` int NOT NULL AUTO_INCREMENT,
                                  `security_name` varchar(45) DEFAULT NULL,
                                  `created_date` datetime DEFAULT NULL,
                                  `crteated_by` varchar(45) DEFAULT NULL,
@@ -12,6 +13,8 @@ CREATE TABLE `order_detail` (
                                 `order_ref_no` int NOT NULL AUTO_INCREMENT,
                                 `order_date` date NOT NULL,
                                 `order_state` varchar(20) DEFAULT NULL,
+                                `order_status` varchar(20) DEFAULT NULL,
+                                `payment_status` varchar(20) DEFAULT NULL,
                                 `quantity` int DEFAULT NULL,
                                 `transaction_type` varchar(20) DEFAULT NULL,
                                 `order_value` decimal(6,2) NOT NULL,

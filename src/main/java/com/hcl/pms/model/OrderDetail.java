@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 @Data
@@ -44,4 +45,35 @@ public class OrderDetail extends BaseEntity{
     @JoinColumn(name="asset_id")
     private AssetDetail assetDetail;
 
+    @Column(name="transaction_id")
+    private String transactionId;
+
+
+    /** The operation success. */
+    @JsonIgnore
+    private boolean operationSuccess;
+
+    /** The message. */
+    @JsonIgnore
+    private String message;
+
+    /** The description. */
+    @JsonIgnore
+    private String description;
+
+    public boolean isOperationSuccess() {
+        return operationSuccess;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getDescription() {
+        return description;
+    }
 }

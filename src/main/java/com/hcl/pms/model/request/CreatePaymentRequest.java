@@ -4,7 +4,14 @@ import java.math.BigDecimal;
 
 public class CreatePaymentRequest {
 
-    private String orderRef;
-    private BigDecimal amount;
+    private Long orderRef;
+    private Double amount;
 
+    public Long getOrderRef() {
+        return orderRef;
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
 }

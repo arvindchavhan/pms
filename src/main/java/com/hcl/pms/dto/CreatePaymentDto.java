@@ -1,8 +1,32 @@
 package com.hcl.pms.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.hcl.pms.model.AssetDetail;
+
+import javax.persistence.*;
 
 public class CreatePaymentDto {
+
+
+    private Long orderRefNo;
+
+    private String orderDate;
+
+    private String orderStatus;
+
+    private String paymentStatus;
+
+    private Integer quantity;
+
+    private String transactionType;
+
+    private Double orderValue;
+
+    private Double unitPrice;
+
+    private AssetDetail assetDetail;
+
+    private String transactionId;
 
     /** The operation success. */
     @JsonIgnore

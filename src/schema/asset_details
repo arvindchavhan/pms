@@ -1,9 +1,0 @@
-CREATE TABLE `asset_details` (
-  `asset_id` int NOT NULL,
-  `security_name` varchar(45) DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `crteated_by` varchar(45) DEFAULT NULL,
-  `updated_date` datetime DEFAULT NULL,
-  `updated_by` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`asset_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

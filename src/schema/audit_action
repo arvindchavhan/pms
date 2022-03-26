@@ -1,0 +1,10 @@
+CREATE TABLE `audit_action` (
+  `audit_id` int NOT NULL,
+  `old_data` varchar(45) DEFAULT NULL,
+  `new_data` varchar(45) DEFAULT NULL,
+  `created_date` varchar(45) DEFAULT NULL,
+  `created_by` varchar(45) DEFAULT NULL,
+  `update_date` varchar(45) DEFAULT NULL,
+  `update_by` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`audit_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

@@ -52,3 +52,8 @@ CREATE TABLE `audit_action` (
                                 `update_by` varchar(45) DEFAULT NULL,
                                 PRIMARY KEY (`audit_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+ALTER TABLE `pms`.`order_detail`
+ADD COLUMN `transaction_id` VARCHAR(45) NULL AFTER `asset_id`,
+ADD UNIQUE INDEX `transaction_id_UNIQUE` (`transaction_id` ASC) VISIBLE;
+;

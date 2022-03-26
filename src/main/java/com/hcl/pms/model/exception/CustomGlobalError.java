@@ -1,4 +1,4 @@
-package com.hcl.pms.model;
+package com.hcl.pms.model.exception;
 
 import lombok.Data;
 

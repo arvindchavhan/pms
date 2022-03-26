@@ -1,7 +1,7 @@
 package com.hcl.pms.ctrl;
 
 import com.hcl.pms.custom.OrderEntryException;
-import com.hcl.pms.model.CustomGlobalError;
+import com.hcl.pms.model.exception.CustomGlobalError;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -12,7 +12,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class PmsExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(OrderEntryException.class)
-    public ResponseEntity<CustomGlobalError> orderEntryException() {
+    public ResponseEntity<CustomGlobalError> orderEntryException(OrderEntryException orderEntryException) {
         CustomGlobalError globalError=new CustomGlobalError();
         globalError.setErrorReason("Internal Server Error");
         globalError.setMessage("Order Entry Exception");

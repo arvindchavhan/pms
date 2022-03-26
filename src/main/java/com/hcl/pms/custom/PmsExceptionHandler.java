@@ -1,4 +1,4 @@
-package com.hcl.pms.ctrl;
+package com.hcl.pms.custom;
 
 import com.hcl.pms.custom.OrderEntryException;
 import com.hcl.pms.model.exception.CustomGlobalError;
